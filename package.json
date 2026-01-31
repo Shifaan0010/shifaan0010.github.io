@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@fontsource-variable/pixelify-sans": "^5.2.7",
+    "@fontsource/bytesized": "^5.2.4",
+    "@fontsource/indie-flower": "^5.2.7",
+    "@fontsource/inspiration": "^5.2.7",
     "@fontsource/tiny5": "^5.2.7",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
+    "gsap": "^3.14.2",
     "tailwindcss": "^4.1.18"
   }
 }

@@ -11,6 +11,15 @@ importers:
       '@fontsource-variable/pixelify-sans':
         specifier: ^5.2.7
         version: 5.2.7
+      '@fontsource/bytesized':
+        specifier: ^5.2.4
+        version: 5.2.4
+      '@fontsource/indie-flower':
+        specifier: ^5.2.7
+        version: 5.2.7
+      '@fontsource/inspiration':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fontsource/tiny5':
         specifier: ^5.2.7
         version: 5.2.7
@@ -20,6 +29,9 @@ importers:
       astro:
         specifier: ^5.16.15
         version: 5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.57.0)(typescript@5.9.3)
+      gsap:
+        specifier: ^3.14.2
+        version: 3.14.2
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -225,6 +237,15 @@ packages:
 
   '@fontsource-variable/pixelify-sans@5.2.7':
     resolution: {integrity: sha512-IbQ7po3a7bQuguwyGQ7x7kMUCYvHjzxTdc7lYAcqzgR87MQb+vf8fuu4hjGyFLlWaDhS6QEe0jrS9dmCJ9ZlYw==}
+
+  '@fontsource/bytesized@5.2.4':
+    resolution: {integrity: sha512-hTtLUAd6AqH3wgIWSLH8tTWx8XYdUP17Miuxh3vGVElRD3ab5DbyrbTlLPR8bQMuJKyaz5yB/5eUfQrErU6PlA==}
+
+  '@fontsource/indie-flower@5.2.7':
+    resolution: {integrity: sha512-vu9yEMW3Be2TXRkw2NYMLK1C4KQOUme3SUtqSha/wGzvBgzc2llT/lQ3bzZZ4aoCeF4x9ghGV+iwW+4hVr+Yhg==}
+
+  '@fontsource/inspiration@5.2.7':
+    resolution: {integrity: sha512-Unh3kgWHn024288t5u8EiBgqR6i+PdHNCjrvPIhgCRS02XlgwoXQeWzUPCknWY/5WRsGJUsu3sJxo+0sMM7esQ==}
 
   '@fontsource/tiny5@5.2.7':
     resolution: {integrity: sha512-UiZrzQz/bPXB4QKEtDhizpWTXQ/hZSBnNMvqgrGJsPK327Ixl3JHmK2N0NLVQdg82H83x2f+l5aFoRj/awXPNQ==}
@@ -959,6 +980,9 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  gsap@3.14.2:
+    resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
 
   h3@1.15.5:
     resolution: {integrity: sha512-xEyq3rSl+dhGX2Lm0+eFQIAzlDN6Fs0EcC4f7BNUmzaRX/PTzeuM+Tr2lHB8FoXggsQIeXLj8EDVgs5ywxyxmg==}
@@ -1878,6 +1902,12 @@ snapshots:
 
   '@fontsource-variable/pixelify-sans@5.2.7': {}
 
+  '@fontsource/bytesized@5.2.4': {}
+
+  '@fontsource/indie-flower@5.2.7': {}
+
+  '@fontsource/inspiration@5.2.7': {}
+
   '@fontsource/tiny5@5.2.7': {}
 
   '@img/colour@1.0.0':
@@ -2540,6 +2570,8 @@ snapshots:
   github-slugger@2.0.0: {}
 
   graceful-fs@4.2.11: {}
+
+  gsap@3.14.2: {}
 
   h3@1.15.5:
     dependencies:

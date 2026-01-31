@@ -10,9 +10,155 @@ import '../styles/global.css';
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Shifaan</title>
+		<style>
+			:root {
+				--col1: rgb(255, 0, 128);
+				--col2: rgb(72, 0, 255);
+			}
+
+			body {
+				background-color: #000;
+			}
+
+			#hi-name {
+				visibility: hidden;
+				line-height: 1;
+				min-height: 1em;
+			}
+
+			#hi {
+				color: #fff;
+				font-family: 'Inspiration', cursive;
+				/* font-weight: 300; */
+				font-size: 96px;
+			}
+
+			#name {
+				color: #fff;
+				font-family: 'Bytesized', 'Tiny5', 'Pixelify Sans Variable';
+				font-size: 136px;
+			}
+
+			#hi :global(.word1) {
+				color: var(--col1);
+			}
+			#name :global(.char1) {
+				color: var(--col2);
+			}
+			#name :global(.char5) {
+				color: var(--col1);
+			}
+		</style>
 	</head>
 	<body>
 		<header></header>
-		<h1 class="font-pixel text-8xl">Hi, I'm<br/>Shifaan</h1>
+
+		<div class="flex flex-col justify-center items-center h-svh mx-4">
+			<div id="hi-name" class="w-full md:w-[80%] max-w">
+				<h1 id="hi" class="font-cursive text-[100px]">Hi! I'm</h1>
+				<h1 id="name" class="font-pixel text-[120px]">Shifaan</h1>
+			</div>
+		</div>
 	</body>
+
+	<script>
+		import { gsap } from 'gsap';
+
+		import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+		import { SplitText } from 'gsap/SplitText';
+		import { TextPlugin } from 'gsap/TextPlugin';
+		import { Flip } from 'gsap/Flip';
+
+		gsap.registerPlugin(
+			ScrambleTextPlugin,
+			ScrollTrigger,
+			SplitText,
+			TextPlugin,
+			// Flip,
+		);
+
+		window.addEventListener('load', () => {
+			let split = SplitText.create('#hi', {
+				type: 'chars,words,lines',
+				// propIndex: true,
+				wordsClass: 'word++',
+				charsClass: 'char++',
+				linesClass: 'line++',
+				// smartWrap: true,
+				// autoSplit: true,
+				onSplit: (self1) =>
+					gsap
+						.timeline({
+							// onComplete: () => self.revert()
+						})
+						.to('#hi-name', {
+							autoAlpha: 1,
+							perspectiveOrigin: 500,
+						})
+						// .from('#hi', {})
+						.fromTo(
+							'#name',
+							{
+								scrambleText: {
+									text: '',
+								},
+							},
+							{
+								scrambleText: {
+									text: 'Shifaan',
+								},
+								autoAlpha: 1,
+								duration: 1,
+								ease: 'none',
+								// delay: 1,
+							},
+							'<',
+						)
+						.then(() => {
+							SplitText.create('#name', {
+								type: 'chars',
+								// propIndex: true,
+								// wordsClass: 'word++',
+								charsClass: 'char++',
+								// linesClass: 'line++',
+								smartWrap: true,
+								autoSplit: true,
+								onSplit: (self2) =>
+									gsap
+										.timeline()
+										.to(self2.chars.at(-3), {
+											// text: '4',
+											ease: 'power1',
+											yoyo: true,
+											transformOrigin: '50% 56.5%',
+											duration: 3,
+											delay: 2,
+											rotationX: 540,
+											rotationY: 10,
+										})
+										.to(self2.chars.at(-3), {
+											// text: '4',
+											ease: 'power1',
+											yoyo: true,
+											transformOrigin: '50% 56.5%',
+											duration: 3,
+											delay: 5,
+											rotationX: 0,
+											rotationY: 0,
+										})
+										.repeat(-1),
+
+								// .to(self.chars.at(-5), {
+								// 	text: '1',
+								// 	autoAlpha: 1,
+								// 	duration: 1,
+								// 	ease: 'none',
+								// })
+							});
+						}),
+				// gsap.to('#hi-name', { x: 300, duration: 0.5, ease: 'bounce.out' });
+			});
+		});
+	</script>
 </html>
