@@ -46,7 +46,7 @@ jobs:
             exit 0
           elif [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
             echo "manager=pnpm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=pnpx --no-install" >> $GITHUB_OUTPUT
             echo "lockfile=pnpm-lock.yaml" >> $GITHUB_OUTPUT
             exit 0
@@ -66,12 +66,28 @@ jobs:
           node-version: "24"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4.2.0
+        with:
+          # Version of pnpm to install
+          version: # optional
+          # Where to store pnpm files
+          dest: # optional, default is ~/setup-pnpm
+          # If specified, run `pnpm install`
+          run_install: # optional, default is null
+          # File path to the package.json to read "packageManager" configuration
+          package_json_file: # optional, default is package.json
+          # When set to true, @pnpm/exe, which is a Node.js bundled package, will be installed, enabling using pnpm without Node.js.
+          standalone: # optional, default is false
+                
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
