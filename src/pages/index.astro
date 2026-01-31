@@ -6,7 +6,6 @@ import '../styles/global.css';
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Shifaan</title>
@@ -14,10 +13,20 @@ import '../styles/global.css';
 			:root {
 				--col1: rgb(255, 0, 128);
 				--col2: rgb(72, 0, 255);
+				--bg: white;
+				--fg: black;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--bg: black;
+					--fg: white;
+				}
 			}
 
 			body {
-				background-color: #000;
+				background-color: var(--bg);
+				color: var(--fg);
 			}
 
 			#hi-name {
@@ -26,15 +35,16 @@ import '../styles/global.css';
 				min-height: 1em;
 			}
 
+			#links {
+				visibility: hidden;
+			}
+
 			#hi {
-				color: #fff;
 				font-family: 'Inspiration', cursive;
-				/* font-weight: 300; */
 				font-size: 96px;
 			}
 
 			#name {
-				color: #fff;
 				font-family: 'Bytesized', 'Tiny5', 'Pixelify Sans Variable';
 				font-size: 136px;
 			}
@@ -42,21 +52,37 @@ import '../styles/global.css';
 			#hi :global(.word1) {
 				color: var(--col1);
 			}
-			#name :global(.char1) {
-				color: var(--col2);
-			}
-			#name :global(.char5) {
-				color: var(--col1);
+
+			#mail {
+				font-family: 'Tiny5', monospace;
+				cursor: pointer;
 			}
 		</style>
 	</head>
 	<body>
-		<header></header>
-
-		<div class="flex flex-col justify-center items-center h-svh mx-4">
-			<div id="hi-name" class="w-full md:w-[80%] max-w">
-				<h1 id="hi" class="font-cursive text-[100px]">Hi! I'm</h1>
-				<h1 id="name" class="font-pixel text-[120px]">Shifaan</h1>
+		<div class="flex flex-col justify-center items-center gap-4 h-svh mx-4">
+			<div class="w-full md:w-[80%]">
+				<div id="hi-name">
+					<h1 id="hi" class="font-cursive">Hi! I'm</h1>
+					<h1 id="name" class="font-pixel">Shifaan</h1>
+				</div>
+				<div id="links" class="flex gap-8 mx-2 h-8 items-center">
+					<a href="https://github.com/shifaan0010">
+						<img
+							src="/GitHub_Invertocat.svg"
+							alt="GitHub"
+							class="h-6 w-6 opacity-50 hover:opacity-100"
+						/>
+					</a>
+					<a href="mailto:shifaan04@outlook.com">
+						<div
+							id="mail"
+							class="text-3xl opacity-50 hover:opacity-100"
+						>
+							@
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -68,35 +94,26 @@ import '../styles/global.css';
 		import { ScrollTrigger } from 'gsap/ScrollTrigger';
 		import { SplitText } from 'gsap/SplitText';
 		import { TextPlugin } from 'gsap/TextPlugin';
-		import { Flip } from 'gsap/Flip';
 
 		gsap.registerPlugin(
 			ScrambleTextPlugin,
 			ScrollTrigger,
 			SplitText,
 			TextPlugin,
-			// Flip,
 		);
 
 		window.addEventListener('load', () => {
-			let split = SplitText.create('#hi', {
+			SplitText.create('#hi', {
 				type: 'chars,words,lines',
-				// propIndex: true,
 				wordsClass: 'word++',
 				charsClass: 'char++',
 				linesClass: 'line++',
-				// smartWrap: true,
-				// autoSplit: true,
 				onSplit: (self1) =>
 					gsap
-						.timeline({
-							// onComplete: () => self.revert()
-						})
+						.timeline()
 						.to('#hi-name', {
 							autoAlpha: 1,
-							perspectiveOrigin: 500,
 						})
-						// .from('#hi', {})
 						.fromTo(
 							'#name',
 							{
@@ -109,11 +126,19 @@ import '../styles/global.css';
 									text: 'Shifaan',
 								},
 								autoAlpha: 1,
-								duration: 1,
+								duration: 2,
 								ease: 'none',
 								// delay: 1,
 							},
 							'<',
+						)
+						.to(
+							'#links',
+							{
+								visibility: 'inherit',
+								duration: 1,
+							},
+							'<+.5',
 						)
 						.then(() => {
 							SplitText.create('#name', {
@@ -122,42 +147,87 @@ import '../styles/global.css';
 								// wordsClass: 'word++',
 								charsClass: 'char++',
 								// linesClass: 'line++',
+								mask: 'chars',
 								smartWrap: true,
 								autoSplit: true,
 								onSplit: (self2) =>
 									gsap
 										.timeline()
-										.to(self2.chars.at(-3), {
-											// text: '4',
-											ease: 'power1',
-											yoyo: true,
-											transformOrigin: '50% 56.5%',
-											duration: 3,
-											delay: 2,
-											rotationX: 540,
-											rotationY: 10,
-										})
-										.to(self2.chars.at(-3), {
-											// text: '4',
-											ease: 'power1',
-											yoyo: true,
-											transformOrigin: '50% 56.5%',
-											duration: 3,
-											delay: 5,
-											rotationX: 0,
-											rotationY: 0,
-										})
-										.repeat(-1),
+										.add(
+											// a
+											gsap
+												.timeline()
+												.to(self2.chars.at(-3), {
+													autoAlpha: 1,
+													ease: 'power1',
+													transformOrigin:
+														'50% 56.5%',
+													duration: 2,
+													rotationX: 540,
+													rotationY: 4,
+													color: 'var(--col1)',
+												})
+												.add(
+													gsap
+														.timeline()
+														.to(
+															self2.chars.at(-3),
+															{
+																autoAlpha: 1,
+																ease: 'power1',
+																duration: 3,
+																delay: 5,
+																rotationX: 0,
+																rotationY: 0,
+															},
+														)
+														.to(
+															self2.chars.at(-3),
+															{
+																autoAlpha: 1,
+																ease: 'power1',
+																duration: 2,
+																delay: 3,
+																rotationX: 540,
+																rotationY: 4,
+															},
+														)
+														.yoyo(false)
+														.repeat(-1),
+												),
+											1,
+										)
+										.add(
+											// S
+											gsap
+												.timeline()
+												.to(self2.chars.at(-7), {
+													autoAlpha: 1,
+													ease: 'bounce',
+													duration: 2,
+													// translateY: 100,
+													transformOrigin: '40% 50%',
+													rotationY: 720,
+													rotationX: 2,
 
-								// .to(self.chars.at(-5), {
-								// 	text: '1',
-								// 	autoAlpha: 1,
-								// 	duration: 1,
-								// 	ease: 'none',
-								// })
+													color: 'var(--col2)',
+												})
+												.to(self2.chars.at(-7), {
+													autoAlpha: 1,
+													ease: 'bounce',
+													duration: 2,
+													repeat: -1,
+													delay: 9,
+													repeatDelay: 9,
+													// translateY: 100,
+													transformOrigin: '40% 50%',
+													rotationY: 0,
+													rotationX: 2,
+												}),
+											0,
+										),
 							});
 						}),
-				// gsap.to('#hi-name', { x: 300, duration: 0.5, ease: 'bounce.out' });
 			});
 		});
 	</script>

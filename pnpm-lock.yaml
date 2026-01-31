@@ -8,15 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@fontsource-variable/pixelify-sans':
-        specifier: ^5.2.7
-        version: 5.2.7
       '@fontsource/bytesized':
         specifier: ^5.2.4
         version: 5.2.4
-      '@fontsource/indie-flower':
-        specifier: ^5.2.7
-        version: 5.2.7
       '@fontsource/inspiration':
         specifier: ^5.2.7
         version: 5.2.7
@@ -235,14 +229,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/pixelify-sans@5.2.7':
-    resolution: {integrity: sha512-IbQ7po3a7bQuguwyGQ7x7kMUCYvHjzxTdc7lYAcqzgR87MQb+vf8fuu4hjGyFLlWaDhS6QEe0jrS9dmCJ9ZlYw==}
-
   '@fontsource/bytesized@5.2.4':
     resolution: {integrity: sha512-hTtLUAd6AqH3wgIWSLH8tTWx8XYdUP17Miuxh3vGVElRD3ab5DbyrbTlLPR8bQMuJKyaz5yB/5eUfQrErU6PlA==}
-
-  '@fontsource/indie-flower@5.2.7':
-    resolution: {integrity: sha512-vu9yEMW3Be2TXRkw2NYMLK1C4KQOUme3SUtqSha/wGzvBgzc2llT/lQ3bzZZ4aoCeF4x9ghGV+iwW+4hVr+Yhg==}
 
   '@fontsource/inspiration@5.2.7':
     resolution: {integrity: sha512-Unh3kgWHn024288t5u8EiBgqR6i+PdHNCjrvPIhgCRS02XlgwoXQeWzUPCknWY/5WRsGJUsu3sJxo+0sMM7esQ==}
@@ -1900,11 +1888,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@fontsource-variable/pixelify-sans@5.2.7': {}
-
   '@fontsource/bytesized@5.2.4': {}
-
-  '@fontsource/indie-flower@5.2.7': {}
 
   '@fontsource/inspiration@5.2.7': {}
 
