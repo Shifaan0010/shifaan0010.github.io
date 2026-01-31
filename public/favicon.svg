@@ -1,9 +1,23 @@
-<svg width="100" height="100" viewBox="-20 -8.5 110 91.5" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<path d="M11.648 82.304V70.784H0V57.856H12.928V69.504H46.464V47.488H11.648V35.968H0V11.648H11.648V3.8147e-06H47.744V11.648H59.52V24.448H46.464V12.928H12.928V34.816H47.744V46.208H59.52V70.784H47.744V82.304H11.648Z"/>
-	<style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3.9687419mm"
+   height="5.2916508mm"
+   viewBox="0 0 3.9687419 5.2916508"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-94.837341,-190.50428)">
+    <path
+       d="m 98.806086,190.50427 v 1.32291 h -1.322912 v 1.32291 h -2.645825 v -1.32291 h 1.322912 v -1.32291 z m 0,2.64582 v 1.32292 h -1.322912 v -1.32292 z m -1.322912,1.32292 v 1.32291 h -2.645825 v -1.32291 z"
+       id="text2"
+       style="font-size:10.5833px;line-height:1.25;font-family:Bytesized;-inkscape-font-specification:Bytesized;fill:#4800ff;stroke-width:0.264583"
+       aria-label="S" />
+  </g>
 </svg>
