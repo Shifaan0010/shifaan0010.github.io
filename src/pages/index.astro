@@ -1,9 +1,8 @@
 ---
 import '../styles/global.css';
 
-import favicon from '../images/favicon.svg'
-import background from '../images/background.svg'
-import Github from '../images/GitHub_Invertocat.svg'
+import favicon from '../images/favicon.svg';
+import Github from '../images/GitHub_Invertocat.svg';
 ---
 
 <html lang="en">
@@ -13,7 +12,7 @@ import Github from '../images/GitHub_Invertocat.svg'
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Shifaan</title>
-		<style define:vars={{ backgroundUrl: `url(${background.src})` }}>
+		<style>
 			:root {
 				--col1: rgb(255, 0, 128);
 				--col2: rgb(72, 0, 255);
@@ -30,16 +29,8 @@ import Github from '../images/GitHub_Invertocat.svg'
 
 			body {
 				background-color: var(--bg);
-
-				background-repeat: repeat;
-
-				background-image: var(--backgroundUrl);
-
-				backdrop-filter: blur(1px);
-
-				overflow: clip;
-
 				color: var(--fg);
+				background-image: svg-load('background.svg');
 			}
 
 			#hi-name {
@@ -57,28 +48,41 @@ import Github from '../images/GitHub_Invertocat.svg'
 			}
 		</style>
 	</head>
-	<body>
-		<div class="flex flex-col justify-center items-center h-svh mx-4">
-			<div class="w-full sm:w-[80%] flex flex-col gap-4 pb-16 sm:pb-8">
-				<div id="hi-name">
-					<h1 id="hi" class="font-cursive text-6xl sm:text-[96px]">Hi! I'm</h1>
-					<h1 id="name" class="font-pixel-byte text-8xl sm:text-[136px]">Shifaan</h1>
-				</div>
-				<div id="links" class="flex gap-8 h-8 items-center">
-					<a href="https://github.com/shifaan0010">
-						<Github
-							alt="GitHub"
-							class="h-6 w-6 opacity-50 hover:opacity-100"
-						/>
-					</a>
-					<a href="mailto:shifaan04@outlook.com">
-						<div
-							id="mail"
-							class="text-3xl font-pixel-tiny pointer opacity-50 hover:opacity-100"
+	<body class="bg-size-[60px] sm:bg-size-[80px] bg-repeat">
+		<div class="backdrop-blur-[1px] sm:backdrop-blur-[2px]">
+			<div class="flex flex-col justify-center items-center h-svh mx-4">
+				<div
+					class="w-full sm:w-[80%] flex flex-col gap-4 pb-16 sm:pb-8"
+				>
+					<div id="hi-name">
+						<h1
+							id="hi"
+							class="font-cursive text-6xl sm:text-[96px]"
 						>
-							@
-						</div>
-					</a>
+							Hi! I'm
+						</h1>
+						<h1
+							id="name"
+							class="font-pixel-byte text-8xl sm:text-[136px]"
+						>
+							Shifaan
+						</h1>
+					</div>
+					<div id="links" class="flex gap-8 h-8 items-center">
+						<a href="https://github.com/shifaan0010">
+							<Github
+								class="h-6 w-6 opacity-50 hover:opacity-100"
+							/>
+						</a>
+						<a href="mailto:shifaan04@outlook.com">
+							<div
+								id="mail"
+								class="text-3xl font-pixel-tiny pointer opacity-50 hover:opacity-100"
+							>
+								@
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
